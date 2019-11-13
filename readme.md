@@ -1,3 +1,8 @@
+## Train Ticket Reservation System
+Admins can create train schedules, managers can see train trip reports, users can reserve train tickets
+
+</hr>
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
