@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Role extends Model
 {
-    const ROLE_REGULAR_USER = 'role_regular_user';
     const ROLE_MANAGER = 'role_manager';
     const ROLE_ADMIN = 'role_admin';
 
