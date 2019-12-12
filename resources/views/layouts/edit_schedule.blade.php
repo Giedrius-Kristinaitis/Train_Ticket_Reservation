@@ -2,40 +2,46 @@
 
 @section('content')
     <form method="post" action="{{ route('schedule.save') }}">
-        <h1>Create a new schedule</h1>
+        <h1>Edit Schedule</h1>
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" name="name" placeholder="Enter schedule name">
+            <input type="text" class="form-control" name="name" placeholder="Enter schedule name" value="{{ $schedule->name }}">
         </div>
         <hr/>
         <div>
-            <h2>Add trips</h2>
+            <h2>Trips</h2>
             <div class="tripsContainer">
-                <div class="row">
-                    <div class="form-group">
-                        <label for="seatCount">Train ticket count</label>
-                        <input type="number" class="form-control" name="seatCount0"
-                               placeholder="Enter train's available ticket count">
+                @foreach ($schedule->trips as $trip)
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="seatCount">Train ticket count</label>
+                            <input type="number" class="form-control" name="seatCount0"
+                                   placeholder="Enter train's available ticket count"
+                                   value="{{ $trip->total_tickets }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="from">Train leaving from</label>
+                            <input type="text" class="form-control" name="from0"
+                                   placeholder="Enter trip's starting location"
+                                   value="{{ $trip->from }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="to">Train arriving at</label>
+                            <input type="text" class="form-control" name="to0" placeholder="Enter destination"
+                                   value="{{ $trip->to }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Trip date</label>
+                            <input type="date" class="form-control" name="date0"
+                                   value="{{ substr($trip->date, 0, 10) }}">
+                        </div>
+                        <input type="hidden" name="tripId0" value="{{ $trip->id }}"/>
                     </div>
-                    <div class="form-group">
-                        <label for="from">Train leaving from</label>
-                        <input type="text" class="form-control" name="from0"
-                               placeholder="Enter trip's starting location">
-                    </div>
-                    <div class="form-group">
-                        <label for="to">Train arriving at</label>
-                        <input type="text" class="form-control" name="to0" placeholder="Enter destination">
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Trip date</label>
-                        <input type="date" class="form-control" name="date0">
-                    </div>
-                    <input type="hidden" name="tripId0" value=""/>
-                </div>
+                @endforeach
             </div>
             <br/>
             <br/>
-            <a style="color: white" class="addTrip btn btn-primary">Add another trip</a>
+            <a class="addTrip btn btn-primary">Add another trip</a>
         </div>
         <br/>
         <br/>
@@ -44,7 +50,7 @@
     </form>
 @endsection
 
-<script>
+<script defer>
     document.addEventListener('DOMContentLoaded', function () {
         const addButton = document.querySelector('.addTrip');
         const tripsContainer = document.querySelector('.tripsContainer');

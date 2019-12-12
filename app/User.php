@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -45,6 +46,14 @@ class User extends Authenticatable
     public function roles(): BelongsToMany
     {
         return $this->belongsToMany('App\Role');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function reservations(): HasMany
+    {
+        return $this->hasMany('App\Reservation');
     }
 
     /**

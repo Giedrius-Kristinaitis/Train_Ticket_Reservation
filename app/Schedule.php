@@ -10,6 +10,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Schedule extends Model
 {
     /**
+     * @var array
+     */
+    protected $fillable = [
+        'name'
+    ];
+
+    /**
      * @return HasMany
      */
     public function trips(): HasMany

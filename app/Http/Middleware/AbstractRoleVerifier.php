@@ -7,6 +7,7 @@ namespace App\Http\Middleware;
 use App\User;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 abstract class AbstractRoleVerifier
@@ -18,7 +19,7 @@ abstract class AbstractRoleVerifier
      * @param Closure $next
      * @return Closure
      */
-    public function handle(Request $request, Closure $next): Closure
+    public function handle(Request $request, Closure $next)
     {
         /** @var User $user */
         $user = Auth::user();

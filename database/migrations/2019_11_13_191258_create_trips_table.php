@@ -17,12 +17,7 @@ class CreateTripsTable extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('train_id')->nullable(false)->unsigned();
             $table->bigInteger('schedule_id')->nullable(false)->unsigned();
-            $table->foreign('train_id')
-                ->references('id')
-                ->on('trains')
-                ->onDelete('cascade');
             $table->foreign('schedule_id')
                 ->references('id')
                 ->on('schedules')

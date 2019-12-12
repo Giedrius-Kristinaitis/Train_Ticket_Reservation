@@ -11,6 +11,21 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Trip extends Model
 {
     /**
+     * @var array
+     */
+    protected $fillable = [
+        'total_tickets', 'from', 'to', 'date', 'schedule_id', 'reserved_tickets', 'train_id'
+    ];
+
+    /**
+     * @return HasMany
+     */
+    public function reservations(): HasMany
+    {
+        return $this->hasMany('App\Reservation');
+    }
+
+    /**
      * @return HasMany
      */
     public function tickets(): HasMany

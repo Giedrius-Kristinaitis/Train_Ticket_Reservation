@@ -7,14 +7,22 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Ticket extends Model
+class Reservation extends Model
 {
     /**
      * @var array
      */
     protected $fillable = [
-        'trip_id', 'price'
+        'ticket_count', 'user_id', 'trip_id'
     ];
+
+    /**
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo('App\User');
+    }
 
     /**
      * @return BelongsTo
