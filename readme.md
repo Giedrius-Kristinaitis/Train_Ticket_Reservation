@@ -1,7 +1,7 @@
 ## Train Ticket Reservation System
 
 
-Admins can create train schedules, managers can see train trip reports, users can reserve train tickets
+Admins can create train schedules, managers can see train trip reports, users can reserve train tickets (the code is so trash I'm ashamed of it)
 
 
 
