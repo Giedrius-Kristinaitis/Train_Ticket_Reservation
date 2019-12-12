@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <div style="margin: 28px 0" class="card">
+        <h1>Train Ticket Reservation System</h1>
+        <p>Author: Giedrius Kristinaitis IFF-7/2</p>
+    </div>
+
     @if (\Illuminate\Support\Facades\Session::has('success'))
         <div class="alert alert-success" role="alert">
             {{ \Illuminate\Support\Facades\Session::get('success') }}
