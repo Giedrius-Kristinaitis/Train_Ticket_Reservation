@@ -59,7 +59,7 @@
 
                     @if ($user && $user->hasRole(\App\Role::ROLE_ADMIN))
                         <td>
-                            <a href="{{ route('schedule.edit', ['scheduleId' => $schedule->id, 'schedule' => $schedule]) }}"
+                            <a href="{{ route('schedule.edit', $schedule->id) }}"
                                class="edit-schedule btn btn-primary">Edit</a></td>
                         <td>
                             <form method="post" action="{{ route('schedule.delete', $schedule->id) }}">
